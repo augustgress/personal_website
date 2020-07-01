@@ -1,0 +1,20 @@
+
+#container-1 {
+    color: black;
+}
+
+  #container {
+    color: black;
+    background: white;
+    /* display: flex;
+    height: 10em;
+    justify-content: center;
+    align-items: center; */
+    border-radius: 1em;
+    padding: 4em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+  }

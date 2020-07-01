@@ -1,0 +1,35 @@
+.background-container{
+    background: url("https://www.enjoyillinois.com/assets/Tourism-Operators/images/itims/9655_FoellingerHall_UofI.jpg");
+    background-size: cover;
+    position: absolute;
+    top: 55px;
+    bottom: 0px;
+    width:100%;
+  }
+  
+  .container {
+    color: black;
+    background: white;
+    opacity: 0.85;
+    border-radius: 1em;
+    padding: 4em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    height: 70%;
+  }
+  
+  .text-container {
+    text-align: center;
+    font-family: Consolas;
+    border-radius: 1em;
+    padding: 4em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+  }
