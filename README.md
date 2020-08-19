@@ -1,6 +1,8 @@
+[![Build Status](https://travis-ci.com/augustgress/personal_website.svg?branch=master)](https://travis-ci.com/augustgress/personal_website)
+
 # Personal Website
 
-This is the GitHub repo for my personal website hosted on [Cloudfront](ddk40cunz30g2.cloudfront.net)
+This is the GitHub repo for my personal website hosted on [AWS Cloudfront](ddk40cunz30g2.cloudfront.net).
 
 ## Continuous Integration / Continuous Deployment
 
