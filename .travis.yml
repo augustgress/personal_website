@@ -34,9 +34,8 @@ deploy:
     repo: augustgress/personal_website
   skip_cleanup: 'true'
 
-after_deploy:
-  script:
-  - aws cloudfront create-invalidation --distribution-id E19TCBC2K6YKE6 --paths "/*"
+after_script:
+- aws cloudfront create-invalidation --distribution-id E19TCBC2K6YKE6 --paths "/*"
 
 env:
   global:
