@@ -36,10 +36,8 @@ deploy:
 
 after_deploy:
   script:
-  - aws cloudfront create-invalidation \
-  --distribution-id E19TCBC2K6YKE6 \
-  --paths "/*"
-  
+  - aws cloudfront create-invalidation --distribution-id E19TCBC2K6YKE6 --paths "/*"
+
 env:
   global:
   - secure: Nl6DUylv5eias8xGfecDrulkMlkgPQC/CcVo5g/tGGlV3LSH8/uwMiaeeg0s38Vlj/qc7ktp8/pKTVtFYH89FaiQhO0VAdTshGI6+Ccs2KB3lgnEWAudAAW4qAl7/p/qp5jmIQlZAfZOhh2wkU4qsb5eBdrT6hRUTiesnh/GDfGQbHspswLbcaSI7/V+Dt5BQw3AZf5nvsRZqGXdvr5AhXXa6No1XK0Og2wK9X/2cADUffg1Fd8Y7CFcZZgw3fw3uxMCfHeuhXw4wFu7XrgDb3LqI3zt429CYd0XBhx25wbC4M4dBOzyXrm3c7V6gEn/UfSxMpzp4hSiMeUj8Jwmi/C0xrEa2oz96k+ew4UC6DOEzMaIyzb9oWuIbzkE3H6hLM9Cf2M62bhDVAJ+jdPqXDqR4nOcfyOlXJ1Kb9/Ei1LjF2Hoppyx7rrz2oZzl+ujS7fBMaGCTCu3bjgqYVS+kQtY3wIPG0CXwxZFCsuUYSPLl5LIfTLfMFKp+aGfSduSzAJHS28X81DTeuSOVrMJSpKZRhFA8ytU9Z6Hw2oDLQjgD5ZAFxtJwogTb7KSxuoBhodApojac9Hy4gdwRUyCEfB4k+Dz1Rwf2mRM5/M4NDJTv7B57T92YEOJAaV+8CsBT6bSPfkyJV7XFtwOlglMc5nwltV2UgU4a8bxMUVtpE4=
