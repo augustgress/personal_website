@@ -8,9 +8,11 @@ branches:
   only:
   - master
 
+# get the angular cli installed
 before_script:
 - npm install -g @angular/cli
 
+# test, then on successful test, build and setup S3 bucket for deployment
 script:
 - ng test --watch=false --browsers=ChromeHeadless
 - ng build --prod
@@ -21,6 +23,7 @@ cache:
   directories:
   - "./node_modules"
 
+# push the freshly built website to S3
 deploy:
   provider: s3
   access_key_id: AKIAIRZNSNRJU7BVNCZQ
@@ -34,6 +37,7 @@ deploy:
     repo: augustgress/personal_website
   skip_cleanup: 'true'
 
+# after successful push, invalidate cache for outdated website to allow updates to propogate
 after_script:
 - aws cloudfront create-invalidation --distribution-id E19TCBC2K6YKE6 --paths "/*"
 
