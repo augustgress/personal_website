@@ -11,8 +11,8 @@ before_script:
 script:
 - ng test --watch=false --browsers=ChromeHeadless
 - ng build --prod
-- pip install awscli
-- awscli s3 rm s3://personal-website-bucket-s3 --recursive
+- pip install awscli --user
+- aws s3 rm s3://personal-website-bucket-s3 --recursive --region us-east-2
 
 cache:
   directories:
