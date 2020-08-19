@@ -11,6 +11,7 @@ before_script:
 script:
 - ng test --watch=false --browsers=ChromeHeadless
 - ng build --prod
+
 cache:
   directories:
   - "./node_modules"
@@ -21,8 +22,22 @@ deploy:
     secure: QbOuRAAaU6vbzOeIGqk9rPCr9+JNWvOGsbZEsDsUgIeEZWz9gKj7BZ9JZKXC+zW5kCQ9ru3f3oSVgdivDNqRRiu8JtQFaBXm0ztteVUvsyVDur0mzDPiN8+A7cm78BqURkTZl6ZKWleLAJEmnBw5cdBJqbdCxACP6Xay3YcBW1gdvrC7BdgrzF3wol4VhWpvWHD+rVyxHnc6Dj+q3xtq8pUohrOqU0gIqCisNz2XgCo9Wb1SynmXlRkq6j/JEbtQRg2pNj3RxLXaM4IBMtYaMV8YBvaXAxqJRg2wgjI/OHZwhvPBY19PZmKvB1pCznJ1Q63Y3v9+72u67cKIGPbAlWmMCsctRXOAbmRvkP4iSvo3MyT1R6Y4bUZ8IJMN2g+eqD5e60ihYTf1tS3+0YPD79pzTTK0s9G1iBd3M6uaXWJo3W/5FvgX6BYEW8Oj2AA8Ik1MhSQl6nq6WiakJsc6fK3hYtpOqaerlYLeRUf3N9+el+Z5sYsubD83xAHja6dz0eHlrvox8YS+NemEVlFdP8oImWOd/4ghRzT47hZwfRvkxNDU6OycRewA23FEKsGF0p6KcxjVd4L61p2L04bAvZNlPmaiDIbTto+2zOMz/aGYGur+dxSJ3aCS5CbRrsLwlQkQCv8R5Jrwww5hMKLjeakEmYvGIgKegvJJPO7xArE=
   bucket: personal-website-bucket-s3
   region: us-east-2
-  local-dir: ./schedule-app-frontend/dist
+  local-dir: dist
   acl: public_read
   on:
     repo: augustgress/personal_website
   skip_cleanup: 'true'
+
+#   install: pip install awscli
+
+# deploy:
+#   provider: script
+#   script: "~/.local/bin/aws s3 sync dist s3://personal-website-bucket-s3 --region=us-east-2 --delete"
+#   skip_cleanup: true
+#   on:
+#     branch: master
+# env:
+#   global:
+#   - secure: Nl6DUylv5eias8xGfecDrulkMlkgPQC/CcVo5g/tGGlV3LSH8/uwMiaeeg0s38Vlj/qc7ktp8/pKTVtFYH89FaiQhO0VAdTshGI6+Ccs2KB3lgnEWAudAAW4qAl7/p/qp5jmIQlZAfZOhh2wkU4qsb5eBdrT6hRUTiesnh/GDfGQbHspswLbcaSI7/V+Dt5BQw3AZf5nvsRZqGXdvr5AhXXa6No1XK0Og2wK9X/2cADUffg1Fd8Y7CFcZZgw3fw3uxMCfHeuhXw4wFu7XrgDb3LqI3zt429CYd0XBhx25wbC4M4dBOzyXrm3c7V6gEn/UfSxMpzp4hSiMeUj8Jwmi/C0xrEa2oz96k+ew4UC6DOEzMaIyzb9oWuIbzkE3H6hLM9Cf2M62bhDVAJ+jdPqXDqR4nOcfyOlXJ1Kb9/Ei1LjF2Hoppyx7rrz2oZzl+ujS7fBMaGCTCu3bjgqYVS+kQtY3wIPG0CXwxZFCsuUYSPLl5LIfTLfMFKp+aGfSduSzAJHS28X81DTeuSOVrMJSpKZRhFA8ytU9Z6Hw2oDLQjgD5ZAFxtJwogTb7KSxuoBhodApojac9Hy4gdwRUyCEfB4k+Dz1Rwf2mRM5/M4NDJTv7B57T92YEOJAaV+8CsBT6bSPfkyJV7XFtwOlglMc5nwltV2UgU4a8bxMUVtpE4=
+#   - secure: Q/y5i/1W906rkP0/kGAohEr/4pLKpVhpU9HxCpxBHT+O13364dja6tYshHcJj7wILV7BeUca55bldDVjhngIFhCGR1VMxL3d15ZF5RfRAyXHHrA0YJ7N5cbv8Sx7LEXSetDfpZNesHeYyESjXXILItPpAp1H0AhiHMrENARb7HzdjHofuI/fYxLa5yLo0Q20chYMByPUkjyjTMIMzBrmznKdSUsmxbXh1U3bB9EapdBcZVXdrZnxrKio3Et6Gs/1niAVBn5/wUE79mYyqfvpTVtBM2Voy7zy0rcw+9jjBLpJRh8HnDFgmVsE1RASCintpzCxn0zaDWIUYk0XIEcUQaehZL1XUx1OoVH9qJI8o+FpM9dVgx+zueG6c652IO6lvYaTtRG1r0sZynDO9ExwdZQLBEojsoaZD+n4oa3Q/oEj59HP4m/mwk5j3ciLD/6jytcVe4eu2gxta0lomYV5tttY60n1QlYWSE3QI6cl4jVIhjit5Bb1wGUyfwUOjLR1+SVBrCJmVh2IIf2gOmdPqvROOCejIAhg7YUaDhgONFAfCJMLm0R4uvODbgDnk4/MC3PcUuEbjechUPinA9oNorfLhRM29I+DglkzVACF2kUty1Dk/JZwcRs0gt1Lt+ZMnKOQl9czm9lBsoQQ9rg1yIUOO9DPowJ+q3dfM+RhqQ8=
+
