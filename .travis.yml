@@ -33,7 +33,7 @@ deploy:
     repo: augustgress/personal_website
   skip_cleanup: 'true'
 
-after-deploy:
+after_deploy:
   script:
     - aws cloudfront create-invalidation \
     --distribution-id E19TCBC2K6YKE6 \
