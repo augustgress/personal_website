@@ -1,24 +1,27 @@
 dist: trusty
 sudo: false
-
 language: node_js
 node_js:
-  - '12'
-
+- '12'
 branches:
   only:
-    - master
-
+  - master
 before_script:
-  - npm install -g @angular/cli
-
+- npm install -g @angular/cli
 script:
-  - npm install
-  - npm run build
-  
+- ng test --watch=false --browsers=ChromeHeadless
 cache:
   directories:
-    - ./node_modules
-
-script:
-  - ng test --watch=false --browsers=ChromeHeadless
+  - "./node_modules"
+deploy:
+  provider: s3
+  access_key_id: AKIAIRZNSNRJU7BVNCZQ
+  secret_access_key:
+    secure: QbOuRAAaU6vbzOeIGqk9rPCr9+JNWvOGsbZEsDsUgIeEZWz9gKj7BZ9JZKXC+zW5kCQ9ru3f3oSVgdivDNqRRiu8JtQFaBXm0ztteVUvsyVDur0mzDPiN8+A7cm78BqURkTZl6ZKWleLAJEmnBw5cdBJqbdCxACP6Xay3YcBW1gdvrC7BdgrzF3wol4VhWpvWHD+rVyxHnc6Dj+q3xtq8pUohrOqU0gIqCisNz2XgCo9Wb1SynmXlRkq6j/JEbtQRg2pNj3RxLXaM4IBMtYaMV8YBvaXAxqJRg2wgjI/OHZwhvPBY19PZmKvB1pCznJ1Q63Y3v9+72u67cKIGPbAlWmMCsctRXOAbmRvkP4iSvo3MyT1R6Y4bUZ8IJMN2g+eqD5e60ihYTf1tS3+0YPD79pzTTK0s9G1iBd3M6uaXWJo3W/5FvgX6BYEW8Oj2AA8Ik1MhSQl6nq6WiakJsc6fK3hYtpOqaerlYLeRUf3N9+el+Z5sYsubD83xAHja6dz0eHlrvox8YS+NemEVlFdP8oImWOd/4ghRzT47hZwfRvkxNDU6OycRewA23FEKsGF0p6KcxjVd4L61p2L04bAvZNlPmaiDIbTto+2zOMz/aGYGur+dxSJ3aCS5CbRrsLwlQkQCv8R5Jrwww5hMKLjeakEmYvGIgKegvJJPO7xArE=
+  bucket: personal-website-bucket-s3
+  region: us-east-2
+  local-dir: ./dist
+  acl: public_read
+  on:
+    repo: augustgress/personal_website
+  skip_cleanup: 'true'
