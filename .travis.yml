@@ -11,6 +11,7 @@ before_script:
 script:
 - ng test --watch=false --browsers=ChromeHeadless
 - ng build --prod
+- ls
 
 cache:
   directories:
