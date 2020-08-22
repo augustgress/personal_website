@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   }
   onSubmit(){
     console.log(this.loginForm)
-    this.loginService.testFunction(this.loginForm.controls['email'].value,this.loginForm.controls['password'].value );
+    this.loginService.login(this.loginForm.controls['email'].value,this.loginForm.controls['password'].value);
     this.router.navigateByUrl("home-page");
     
   }

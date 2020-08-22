@@ -11,7 +11,6 @@ export class HomePageComponent implements OnInit {
   constructor(public loginService: loginService) { }
 
   ngOnInit(): void {
-    var CC = this.loginService.chocolateCake
   }
 
 }
